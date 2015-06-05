@@ -1,0 +1,34 @@
+/* INDEX POST STYLES */
+.index .post { background-color: rgba(0, 0, 0, 0.02);border-radius: 5px 5px 5px 5px;margin: 0px 5px 5px 0px; padding: 5px;width: 260px;}
+
+.container {margin-left: 195px !important; margin-right: 0 !important;}
+
+.sidebar {position: fixed; top:  25px; left:  0; height:auto;
+-webkit-box-shadow: 0px 6px 0px 5px rgba(0, 0, 0, 0.02);
+-moz-box-shadow: 0px 6px 0px 5px rgba(0, 0, 0, 0.02);
+box-shadow: 0px 6px 0px 5px rgba(0, 0, 0, 0.02); 
+
+}
+
+.navigation { display:none; }
+
+.sidebarBorder { display: none; }
+
+/* LOAD NEW POSTS STYLES */
+.more {display:none;cursor: pointer;position: static; background-color: rgba(0,0,0,0.5);padding: 5px 7px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+border-radius: 5px; color:#fff; width: 30px; margin: 20px 0px 20px 210px;}
+
+.more { margin-top: 20px !important; }
+
+.more:hover {background-color: rgba(0,0,0,0.8);color: #fff;}
+
+#infscr-loading {background-color: #FFFFFF;border-radius: 5px 5px 5px 5px;display: block;padding: 6px 6px 0;position: static;margin: 20px 0px 20px 160px;}
+
+.container.permalink { margin-left:5px !important; }
+
+.credit { display:none; }
+
+.sidebarInner .creditiPad { display:block; font-size: 11px !important; opacity: 1 !important;}
+.sidebarInner .creditiPad a {  text-decoration: none !important; }

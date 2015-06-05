@@ -1,0 +1,1093 @@
+
+/**** Isotope Filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+          transition-duration: 0s;
+}
+/*
+.isotope, .isotope .isotope-item {
+	-webkit-transition-duration: .8s;
+	-moz-transition-duration: .8s;
+	transition-duration: .8s
+}
+.isotope {
+	-webkit-transition-property: height, width;
+	-moz-transition-property: height, width;
+	transition-property: height, width
+}
+.isotope .isotope-item {
+	-webkit-transition-property: -webkit-transform, opacity;
+	-moz-transition-property: -moz-transform, opacity;
+	transition-property: transform, opacity
+}
+.isotope.no-transition, .isotope.no-transition .isotope-item, .isotope .isotope-item.no-transition {
+	-webkit-transition-duration: 0s;
+	-moz-transition-duration: 0s;
+	transition-duration: 0s
+}
+*/
+
+body {
+	font-family: "微软雅黑" , "黑体" , "宋体" , Arial, Helvetica, sans-serif;
+	line-height: 155%;
+	color: #878787;
+	font-size: 12px;
+	background: #f9f5eb
+}
+.ie8 body ,
+.ie7 body ,
+.ie6 body{
+	font-size: 13px;
+}
+a {
+	color: #555
+}
+.container.index {
+	margin-left: 200px;
+	margin-right: 40px;
+	padding-top: 15px
+}
+blockquote {
+	border-left: 3px solid rgba(161,161,161,0.2);
+	margin: 10px;
+	padding: 0 10px
+}
+.container ul li {
+	list-style-type: circle
+}
+.container li {
+	line-height: 1.2;
+	list-style-position: outside;
+	margin: .7em 0
+}
+.container ul, .body ol {
+	margin: .75em 2em
+}
+.container ol {
+	list-style-type: decimal;
+	padding-left: 20px;
+}
+.containerInnerBorder {
+	background-color: #fbfaf8;
+	height: 100%;
+	margin-left: 190px;
+	position: fixed;
+	width: 780px;
+	opacity: .7;
+	z-index: 2;
+	position: fixed
+}
+.containerInner {
+	background-color: #fbfaf8;
+	height: 100%;
+	margin-left: 180px;
+	width: 780px;
+	z-index: 3;
+	position: fixed
+}
+.container.permalink {
+	left: 180px;
+	position: absolute;
+	z-index: 4;
+	top: 0;
+	padding-bottom: 50px
+}
+.sidebar {
+	position: fixed;
+	width: 160px;
+	text-align: left;
+	height: 100%;
+	color: #fff;
+	padding: 16px 12px 12px;
+	z-index: 5;
+	top: 0;
+	left: 0;
+	overflow:auto;
+}
+.sidebar a {
+	color: #fff
+}
+.sidebarInner {
+	margin-top: 8px
+}
+.sidebarBorder {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 180px;
+	text-align: left;
+	background-color: #2F2F31;
+	height: 100%;
+	opacity: .2;
+	margin-left: 10px;
+	z-index: 4
+}
+.seperator {
+	height: 4px;
+	background-color: rgba(0,0,0,0.05);
+	margin: 15px 0
+}
+.sidebarLogo img {
+	height: auto;
+	max-width: 100%;
+	width: auto
+}
+.filter .tag {
+	display: none
+}
+.filters.type {
+	margin-bottom: 15px
+}
+.filter ul {
+	overflow: auto
+}
+.filter ul.filters a {
+	cursor: pointer
+}
+.filter h3 {
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase
+}
+.filter a {
+	color: #fff;
+	font-size: 10px
+}
+.filters li {
+	margin-top: 6px;
+	list-style-position: outside;
+	float:left;
+}
+.filters li a, .filters li a.active, .show-all {
+	background-color: rgba(0,0,0,0.05);
+	padding: 2px 4px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	font-size: 11px;
+	display:block;
+	margin: 0 3px 3px 0
+}
+.show-all {
+	display: block;
+	float: none;
+	font-size: 11px !important;
+	margin-bottom: 11px;
+	padding: 2px 4px;
+	width: 72px
+}
+.filters li a.active, .show-all.active {
+	background-color: rgba(0,0,0,0.20)
+}
+h1.title a {
+	font: 18px 'Droid Sans', Arial, sans-serif;
+	letter-spacing: 0;
+	color: #fff;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold
+}
+.chrome h1, .chrome h2, .chrome h3, .chrome p.quote {
+	text-shadow: 0 1px 0 rgba(0,0,0,0.01)
+}
+ul.pages li {
+	margin-bottom: 3px
+}
+ul.pages li a {
+	color: #fff;
+	text-decoration: none;
+	font-size: 11px
+}
+.post{
+	word-break: break-all;
+	word-wrap:break-word;
+}
+.index .post {
+	background-color: rgba(0,0,0,0.02);
+	border-radius: 5px 5px 5px 5px;
+	margin: 0 10px 10px 0;
+	padding: 5px;
+	width: 260px
+}
+.index .post .postInner {
+	background: none repeat scroll 0 0 #fbfaf8;
+	margin: auto;
+	padding: 5px;
+	width: 250px
+}
+.index .text .postInner, .index .quote .postInner, .index .link .postInner, .index .chat .postInner {
+	padding: 10px;
+	width: 240px
+}
+.index .photo .meta, .index .photoset .meta, .index .video .meta, .index .audio .meta {
+	padding-bottom: 5px
+}
+.post .caption {
+	width: 230px;
+	padding: 0 5px
+}
+.permalink .post .caption {
+	width: 560px;
+	padding: 0
+}
+.index .post h3 a, .permalink .post h3 a {
+	font: 16px 'Droid Sans', Arial, sans-serif;
+	letter-spacing: 0;
+	color: #2F2F31;
+	text-decoration: none;
+	text-transform: uppercase
+}
+.post p {
+	margin-bottom: 7px;
+	line-height: 18px;
+	color: #878787
+}
+.post a:hover, .post h3 a:hover {
+	text-decoration: underline !important
+}
+.post p a {
+	color: #2F2F31;
+	text-decoration: none
+}
+.post img {
+	height: auto;
+	max-width: 100%;
+	/*width: auto;*/
+	margin-bottom: 7px
+}
+.post h3, a.link {
+	margin-bottom: 5px
+}
+.index .post .seperator {
+	height: 2px;
+	margin: 10px 0 5px
+}
+.post .flash-content {
+	background: url("http://o.srcdd.com/id_34/img/sprite.png") no-repeat scroll 0 -25px transparent;
+	color: #000;
+	display: block;
+	font-size: 12px;
+	margin: 17px 0;
+	opacity: .3;
+	padding-left: 20px;
+	padding-top: 1px;
+	text-transform: uppercase
+}
+.flash-content:hover {
+	opacity: 1
+}
+.post strong {
+	font-weight: bold
+}
+.post em {
+	font-style: italic
+}
+.index .post pre {
+	overflow-x: auto;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap !important;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word
+}
+.noCaption img {
+	margin-bottom: 0
+}
+.noCaption .seperator {
+	margin-top: 0 !important
+}
+.permalink .post {
+	margin-left: 25px;
+	margin-top: 20px
+}
+.permalink .post {
+	font-size: 13px;
+	line-height: 1.5
+}
+/*.permalink .post p, */
+.permalink .post .meta, .permalink .post .seperator, #notes .seperator {
+	width: 550px
+}
+.permalink .post h3 a {
+	font-size: 18px
+}
+#posts {
+	padding-top: 7px;
+}
+.permalink #posts{
+	max-width: 750px;
+	_width:750px;
+}
+.index .audio span {
+	display: none
+}
+.index .albumArt {
+	position: relative;
+	display: block
+}
+.index .albumIcon {
+	background: url("http://o.srcdd.com/id_34/img/sprite.png") no-repeat scroll 0 -141px transparent;
+	bottom: 21px;
+	height: 34px;
+	opacity: .5;
+	position: absolute;
+	right: 10px;
+	width: 34px
+}
+.albumArt:hover .albumIcon {
+	opacity: 1
+}
+.audioListen {
+	display: none
+}
+.audioListen {
+	margin-bottom: 15px;
+	margin-top: 3px
+}
+.audioListen a {
+	background: url("http://o.srcdd.com/id_34/img/sprite.png") no-repeat scroll 0 -222px transparent;
+	color: #2F2F31 !important;
+	font: 18px /23px 'Droid Sans', Arial sans-serif !important;
+	margin: 10px 0 0 5px;
+	padding-left: 20px;
+	padding-top: 3px;
+	text-decoration: none;
+	text-transform: uppercase
+}
+.audioPlayer {
+	background-color: rgba(0,0,0,0.03);
+	padding: 5px 5px 0;
+	width: 258px
+}
+.audio h3 {
+	font: 16px 'Droid Sans', Arial, sans-serif;
+	margin: 5px 0 0 5px
+}
+.audio h4 {
+	font: 13px 'Droid Sans', Arial, sans-serif;
+	margin: 0 0 15px 5px
+}
+.audio h3 a {
+	text-transform: none !important
+}
+.permalink .audio h3 {
+	text-transform: uppercase
+}
+.videoWatch {
+	display: none
+}
+.videoWatch {
+	margin-bottom: 5px;
+	margin-top: 3px
+}
+.videoWatch a {
+	background: url("http://o.srcdd.com/id_34/img/sprite.png") no-repeat scroll 0 -336px transparent;
+	color: #2F2F31 !important;
+	font: 18px /23px 'Droid Sans', Arial sans-serif !important;
+	margin: 10px 0 0 5px;
+	padding-left: 20px;
+	padding-top: 3px;
+	text-decoration: none;
+	text-transform: uppercase
+}
+.thumb {
+	position: relative;
+	display: block
+}
+.thumb img {
+	max-width: 250px;
+	/*width: auto;*/
+	height: auto
+}
+.videoIcon {
+	background: url("http://o.srcdd.com/id_34/img/sprite.png") no-repeat scroll 0 -64px transparent;
+	bottom: 21px;
+	height: 34px;
+	opacity: .5;
+	position: absolute;
+	right: 10px;
+	width: 34px
+}
+.thumb:hover .videoIcon {
+	opacity: 1
+}
+.permalink .video .caption {
+	margin-top: 10px
+}
+.index .video iframe {
+	display: none
+}
+ul.chat {
+	overflow: auto;
+	margin: 0
+}
+ul.chat span.label {
+	font-weight: bold
+}
+ul.chat li {
+	list-style-type: none;
+	margin-bottom: 10px;
+	line-height: 18px
+}
+.permalink ul.chat {
+	width: 560px
+}
+.chat h3 {
+	margin-bottom: -5px
+}
+.permalink .photo img {
+	height: auto;
+	max-width: 740px;
+	width: auto
+}
+.photoSetLink {
+	display: none;
+	margin-bottom: 5px;
+	margin-top: 3px
+}
+p.psHack {
+	margin-top: 0
+}
+.photoSetLink a {
+	background: url("http://o.srcdd.com/id_34/img/sprite.png") no-repeat scroll 0 -199px transparent;
+	color: #2F2F31 !important;
+	font: 18px /23px 'Droid Sans', Arial sans-serif !important;
+	margin: 10px 0 0 5px;
+	padding-left: 20px;
+	padding-top: 3px;
+	text-decoration: none;
+	text-transform: uppercase
+}
+.permalink .photoset .imageP {
+	margin-bottom: 0
+}
+.permalink .photoset .imageP img {
+	margin-bottom: 0
+}
+.permalink .photoset .photosetCaption {
+	margin: 5px 0 20px 0
+}
+.permalink .photoset img {
+	height: auto;
+	max-width: 740px;
+	width: auto;
+	margin-bottom: 10px
+}
+.photoSection {
+	display: none
+}
+.photoSetImageLink {
+	display: block;
+	overflow: auto;
+	z-index: 20
+}
+.index .html_photoset {
+	display: block;
+	overflow: auto;
+	z-index: 15
+}
+.permalink .text blockquote {
+	font: 18px /23px 'Droid Sans', Arial sans-serif !important;
+	letter-spacing: 0;
+	color: #2F2F31 !important;
+	text-decoration: none;
+	margin-bottom: 6px;
+	border: 0;
+	margin: 0;
+	padding: 20px 10px 20px 40px
+}
+.permalink .text ul, .permalnk .text ol {
+	padding: 20px 10px 20px 40px;
+	margin: 0
+}
+.permalink .text img {
+	height: auto;
+	max-width: 740px;
+	width: auto
+}
+.quoteText {
+	font: 18px /23px 'Droid Sans', Arial sans-serif !important;
+	letter-spacing: 0;
+	color: #2F2F31 !important;
+	text-decoration: none;
+	margin-bottom: 6px
+}
+.quoteText blockquote {
+	text-indent: -0.4em;
+	border: 0;
+	margin: 0;
+	padding: 0 0 0 7px
+}
+.quote .quoteSource {
+	padding-left: 7px
+}
+.permalink .quote blockquote {
+	width: 740px;
+	font: 22px /27px 'Droid Sans', Arial sans-serif !important
+}
+.permalink .quote .quoteSource {
+	font-size: 15px
+}
+.permalink .postInner ul li {
+	width: 500px
+}
+.permalink .postInner blockquote {
+	word-break: break-all;
+	word-wrap:break-word;
+}
+.link a.link {
+	background: url("http://o.srcdd.com/id_34/img/sprite.png") no-repeat scroll 0 -363px transparent;
+	padding-left: 20px;
+	padding-top: 3px;
+	font: 16px 'Droid Sans', Arial, sans-serif;
+	letter-spacing: 0;
+	color: #2F2F31;
+	text-decoration: none;
+	text-transform: uppercase;
+	display: block
+}
+.answer h3 {
+	margin-left: 28px;
+	padding: 0 5px 0 0;
+	text-indent: -1.7em;
+	margin-top: 14px
+}
+.askerDiv {
+	height: 25px;
+	margin-left: 25px;
+	vertical-align: middle
+}
+.askerDiv img {
+	margin: 0 3px 0 4px;
+	vertical-align: middle
+}
+.askerDiv a {
+	padding: 2px;
+	vertical-align: middle
+}
+.questionAnswer {
+	overflow: auto;
+	margin-top: 14px
+}
+.questionAnswer h3 {
+	float: left;
+	font: 16px 'Droid Sans', Arial, sans-serif;
+	letter-spacing: 0;
+	margin: 0 0 0 36px;
+	text-decoration: none;
+	text-transform: uppercase
+}
+.questionAnswer .caption {
+	float: left;
+	margin: 2px 0 0 -18px;
+	width: 200px
+}
+.permalink .questionAnswer .caption {
+	margin-left: -10px
+}
+.post .meta {
+	font-size: 10px;
+	overflow: auto;
+	padding: 0 5px
+}
+.permalink .post .meta {
+	padding: 0
+}
+.index .meta div.source {
+	float: left
+}
+.index .meta div {
+	float: right
+}
+.permalink .meta div {
+	float: left
+}
+.post .meta a {
+	color: #000;
+	opacity: .25;
+	text-decoration: none
+}
+.post .meta a:hover {
+	opacity: 1
+}
+.post .meta div a {
+	background: url("http://o.srcdd.com/id_34/img/sprite.png") no-repeat scroll 0 2px transparent;
+	height: 10px;
+	line-height:10px;
+	padding: 0 0 0 12px
+}
+.meta .permaLink a {
+	background-position: 0 -10px !important;
+	margin-left: 10px
+}
+.ie8 .meta .permaLink a,
+.ie7 .meta .permaLink a,
+.ie6 .meta .permaLink a{
+	background-position: 0 -12px !important;
+}
+.meta .source a {
+	background-position: 0 -177px !important;
+	padding-left: 15px !important
+}
+.permalink .meta .source a {
+	margin-left: 12px
+}
+.meta .tags {
+	width:380px;
+	position:relative;
+	margin-left: 12px;
+	padding-left: 12px
+}
+.meta .tags a {
+	background-image: none !important;
+	padding-left: 4px !important;
+	display: inline-block;
+}
+.meta .date a {
+	background-position: 0 -262px !important;
+	padding-left: 13px !important
+}
+.more {
+	display: none;
+	cursor: pointer;
+	position: fixed;
+	right: 20px;
+	bottom: 20px;
+	background-color: rgba(0,0,0,0.5);
+	padding: 3px 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	color: #fff
+}
+.more:hover {
+	background-color: rgba(0,0,0,0.8);
+	color: #fff
+}
+#infscr-loading {
+	background-color: #fff;
+	border-radius: 5px 5px 5px 5px;
+	bottom: 55px;
+	display: block;
+	padding: 6px 6px 0;
+	position: fixed;
+	right: 20px
+}
+#initialLoader {
+	background-color: #fff;
+	border-radius: 5px 5px 5px 5px;
+	display: block;
+	left: 210px;
+	padding: 6px 6px 0;
+	position: fixed;
+	top: 10px;
+	width: 24px
+}
+.resetNote {
+	display: none;
+	border-radius: 5px 5px 5px 5px;
+	bottom: 19px;
+	font-size: 11px;
+	padding: 4px 4px 4px 20px;
+	position: fixed;
+	right: 66px;
+	background: url("http://o.srcdd.com/id_34/img/sprite.png") no-repeat scroll 5px -274px #fff;
+	color: #464646
+}
+#backtotop {
+	width: 28px;
+	height: 28px;
+	position: fixed;
+	right: 20px;
+	top: 40px;
+	display: none;
+	background: url('http://o.srcdd.com/id_34/img/arrow-sprite.png') no-repeat left top;
+	opacity: .4
+}
+#backtotop.hover {
+	opacity: 1;
+	cursor: pointer
+}
+.nextPrev {
+	overflow: hidden;
+	height: 30px
+}
+.nextPrev a {
+	border-radius: 5px 5px 5px 5px;
+	font-size: 11px;
+	margin: 0 3px 3px 0;
+	padding: 4px 6px;
+	text-decoration: none;
+	color: #fff;
+	background: rgba(0,0,0,0.05) url('http://o.srcdd.com/id_34/img/sprite.png') no-repeat 6px -299px
+}
+.nextPrev a:hover {
+	background-color: rgba(0,0,0,0.25)
+}
+.nextPrev .prevPost {
+	padding-left: 20px
+}
+.nextPrev .nextPost {
+	background-position: 44px -321px;
+	float: right;
+	height: 20px;
+	padding: 0 20px 0 6px;
+	width: 36px
+}
+.permalink #notes {
+	margin-left: 25px;
+	font-size: 11px
+}
+.permalink #notes ol li {
+	list-style-type: none
+}
+ol.notes li a {
+	color: #878787
+}
+ol.notes li a img {
+	display: none
+}
+h2.noteHeading, h2.commentsHeading {
+	font: 14px 'Droid Sans', Arial, sans-serif;
+	text-transform: uppercase;
+	padding-bottom: 15px;
+}
+.more_notes_link_container {
+	text-align: left !important
+}
+.comments {
+	margin-left: 25px
+}
+.comments .seperator {
+	width: 550px
+}
+#disqus_thread {
+	width: 550px !important
+}
+.facebookComments {
+	margin: 20px 0 0 25px
+}
+.facebookComments .commentsHeading {
+	margin-bottom: 8px
+}
+#socialBar {
+	overflow: auto;
+	margin-bottom: 5px
+}
+#socialBar a {
+	display: block;
+	height: 20px;
+	width: 20px;
+	float: left;
+	margin: 0 6px 6px 0;
+	background: url('http://o.srcdd.com/id_34/img/social-sprite.png') no-repeat 0 0;
+	opacity: .2;
+	filter: alpha(opacity=20)
+}
+#socialBar a:hover {
+	opacity: 1;
+	filter: alpha(opacity=100)
+}
+#socialBar #facebook {
+	background-position: 0 0
+}
+#socialBar #twitter {
+	background-position: -28px 0
+}
+#socialBar #vimeo {
+	background-position: -56px 0
+}
+#socialBar #flickr {
+	background-position: -84px 0
+}
+#socialBar #lastfm {
+	background-position: -112px 0
+}
+#socialBar #linkedin {
+	background-position: -140px 0
+}
+#socialBar #email {
+	background-position: -196px 0
+}
+#socialBar #youtube {
+	background-position: -252px 0
+}
+#socialBar #myspace {
+	background-position: -167px 0
+}
+#socialBar #dribbble {
+	background-position: -224px 0
+}
+.credit {
+	position: fixed;
+	left: 12px;
+	bottom: 5px;
+	color: #fff;
+	z-index: 6;
+	font-size: 11px;
+	opacity: .7
+}
+.credit span {
+	opacity: .5
+}
+.credit a {
+	color: #fff;
+	text-decoration: none
+}
+.credit a:hover {
+	text-decoration: underline
+}
+.noFixed.notiPad .sidebar {
+	float: left;
+	position: static
+}
+.noFixed.notiPad .notFixedSidebar {
+	position: fixed;
+	width: 160px;
+	text-align: left;
+	height: 100%;
+	color: #fff;
+	padding: 16px 12px 12px;
+	z-index: -1;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	background: #2F2F31
+}
+.noFixed.notiPad .sidebarBorder {
+	z-index: -2
+}
+.ie8 .seperator, .ie7 .seperator {
+	background: url("http://o.srcdd.com/id_34/img/black-05.png")
+}
+.ie8 .filters li a, .ie7 .filters li a {
+	background: url("http://o.srcdd.com/id_34/img/black-05.png")
+}
+.ie8 .filters li a.active, .ie7 .filters li a.active {
+	background: url("http://o.srcdd.com/id_34/img/black-20.png")
+}
+.ie8 .meta div, .ie7 .meta div {
+	filter: alpha(opacity=80) !important
+}
+.ie7 .meta div {
+	height: 20px;
+	overflow: hidden
+}
+.ie7 .post .meta div a,
+.ie8 .post .meta div a{
+	font-size:12px !important;
+	height: 12px !important;
+	line-height: 12px !important;
+}
+.ie8 .meta div.hover, .ie7 .meta div.hover {
+	filter: alpha(opacity=100) !important
+}
+.ie8 .more, .ie7 .more {
+	background: url("http://o.srcdd.com/id_34/img/black-05.png")
+}
+.ie8 .more:hover, .ie7 .more:hover {
+	background: url("http://o.srcdd.com/id_34/img/black-80.png")
+}
+.ie7 .filters li {
+	width: auto;
+	float: left;
+	display: inline
+}
+.ie8 .nextPrev a, .ie7 .nextPrev a {
+	background: url("http://o.srcdd.com/id_34/img/black-05.png")
+}
+.ie8 .nextPrev a:hover, .ie7 .nextPrev a:hover {
+	background: url("http://o.srcdd.com/id_34/img/black-20.png")
+}
+.ie8 .nextPrev .prevPost, .ie7 .nextPrev .prevPost {
+	padding-left: 6px
+}
+.ie8 .nextPrev .nextPost, .ie7 .nextPrev .nextPost {
+	padding: 0 6px 0 6px
+}
+.ie7 .sidebarBorder {
+	display: none
+}
+.ie7 .nextPrev {
+	height: 50px
+}
+.ie7 .nextPrev .prevPost {
+	float: left;
+	padding: 0 6px 0 6px
+}
+.ie8 .index .post, .ie7 .index .post {
+	background: url("http://o.srcdd.com/id_32/img/black-02.png");
+	/*filter:alpha(opacity=0);*/
+	filter: none;
+}
+#description{
+	word-break:break-all;
+	word-wrap:break-word;
+}
+.tag-logo{
+	position: absolute;
+	top:0px;
+	left:0px;
+	width:12px;
+	display:inline-block;
+	height: 12px;
+	background: url("http://o.srcdd.com/id_34/img/sprite.png") no-repeat scroll 0 -248px transparent;
+}
+/**for ie6***********/
+.ie6 .notFixedSidebar{
+	display: none;
+}
+.ie6 .sidebarBorder{
+	display: none;
+}
+.ie6 .text img{
+	display: none;
+}
+
+.ie6 .post img{
+	width:250px;
+	height: auto;
+}
+.ie6 #backtotop{
+	position:absolute;
+} 
+.ie6 .filters li{
+	float: left;
+	overflow: hidden;
+	word-break: break-all;
+	word-wrap:break-word;
+}
+.ie6 .filters li a{
+	display: block;
+	word-break: keep-all;
+	word-wrap:break-word;
+}
+.ie6 .sidebar{
+	position:absolute;
+}
+.ie6 .containerInner,.ie6 .containerInnerBorder{
+	display: none;
+}
+.ie6 #notes .seperator{
+	display: none;
+}
+.ie6 .nextPrev{
+	height: 40px;
+}
+.ie6 .nextPrev a{
+	padding: 5px !important;;
+	margin: 5px !important;;
+}
+.ie8 .nextPrev .prevPost,
+.ie7 .nextPrev .prevPost,
+.ie6 .nextPrev .prevPost{
+	float: left;
+}
+.ie6 .nextPage{
+	display: none;
+}
+.ie6 .seperator{
+	display: none;
+}
+.ie6 .index .meta{
+	border-top:3px solid #ccc;
+	padding-top: 3px;
+}
+.ie6 .index .meta a{
+	background: none;
+	font-size: 13px !important;
+	font-weight: bold;
+}
+.ie8 .index  p,
+.ie8 .permalink p,
+.ie7 .index  p,
+.ie7 .permalink p,
+.ie6 .index  p,
+.ie6 .permalink p{
+	font-size: 14px !important;
+}
+.ie6 .index .videoIcon,
+.ie6 .index .albumIcon{
+	display: none !important;
+}
+.ie6 .index a.link{
+	background: none !important;
+}
+.ie8 blockquote,
+.ie7 blockquote,
+.ie6 blockquote{
+	border-left: 2px solid #ccc !important;
+}
+.ie8 .sidebar p,.ie8 .sidebar a,
+.ie7 .sidebar p,.ie7 .sidebar a,
+.ie6 .sidebar p,.ie6 .sidebar a{
+	font-size: 14px !important;
+}
+.ie8 .sidebar .nextPost,
+.ie7 .sidebar .nextPost,
+.ie6 .sidebar .nextPost{
+	width: 50px;
+}	
+.ie6 .permalink .postInner{
+	padding: 20px;
+}
+.ie8 .permalink .meta a,
+.ie8 .permalink .meta span,
+.ie7 .permalink .meta a,
+.ie7 .permalink .meta span,
+.ie6 .permalink .meta a,
+.ie6 .permalink .meta span{
+	background: none !important;
+	font-size: 14px;
+	font-weight: bold;
+}
+.ie6 .permalink .meta .tags{
+	width: 330px !important;
+}
+.ie6 .permalink .noteHeading{
+	padding-top: 20px;
+}
+.ie6 #sidebarDiv{
+	position:absolute;
+}
+.ie8 .rich-content .edui-filter-upper-roman,
+.ie7 .rich-content .edui-filter-upper-roman,
+.ie6 .rich-content .edui-filter-upper-roman{
+	padding-left: 30px !important;
+}
